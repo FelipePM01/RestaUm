@@ -21,8 +21,21 @@ public class Tabuleiro {
 		}
 	}
 	public void mover(String origem,String destino) {
-		tab[6-(int)(origem.charAt(1)-'1')][(int)(origem.charAt(0)-'a')].mover(destino);
-		
+		if(tab[6-(int)(origem.charAt(1)-'1')][(int)(origem.charAt(0)-'a')]!=null && tab[6-(int)(origem.charAt(1)-'1')][(int)(origem.charAt(0)-'a')]!=vazio && tab[6-(int)(destino.charAt(1)-'1')][(int)(destino.charAt(0)-'a')]) {
+			if((int)(origem.charAt(0)-destino.charAt(0))==2||(int)(origem.charAt(0)-destino.charAt(0))==2) {
+				String medio;
+				if(destino.charAt(0)==origem.charAt(0)) {
+					medio=""+(char)(destino.charAt(0))+(char)((destino.charAt(1)+origem.charAt(1))/2);
+					
+				}
+				else {
+					medio=""+(char)((destino.charAt(0)+origem.charAt(0))/2)+""+(char)(destino.charAt(1))
+				}
+				if(tab[6-(int)(medio.charAt(1)-'1')][(int)(medio.charAt(0)-'a')]!=null && tab[6-(int)(medio.charAt(1)-'1')][(int)(medio.charAt(0)-'a')]!=vazio)
+				tab[6-(int)(origem.charAt(1)-'1')][(int)(origem.charAt(0)-'a')].mover(destino);
+			}
+			
+		}
 	}
 	void setPosition(String posicao,Peca id) {
 		tab[6-(int)(posicao.charAt(1)-'1')][(int)(posicao.charAt(0)-'a')]=id;
