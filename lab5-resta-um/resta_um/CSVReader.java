@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class CSVReader {
 	private String dataSource;
-	private String[] commands;
+	protected String[] commands;
   
   public CSVReader() {
     this.commands = null;
